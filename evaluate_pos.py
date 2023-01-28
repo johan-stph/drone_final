@@ -4,7 +4,7 @@ from djitellopy import Tello
 import numpy as np
 
 pid = [0.4, 0.4, 0]
-fbRange = [6200, 6800]
+fbRange = [10000, 7500]
 w, h = 360, 240
 
 
@@ -22,23 +22,40 @@ class CommandOrder:
         area = info[1]
         x, y = info[0]
         fb = 0
-        error = x - w // 2
-        speed = pid[0] * error + pid[1] * (error - pError)
-        speed = int(np.clip(speed, -100, 100))
+        error = x - (w // 2)
+        height = y - (h // 2)
+        # speed = pid[0] * error + pid[1] * (error - pError)
+        # speed = int(np.clip(speed, -100, 100))
+        lr = 0
+        ud = 0
+
+        if error > 0:
+            lr = 5
+        elif error < 0:
+            lr = -5
+
+        if height > 0:
+            ud = -5
+        elif height < 0:
+            ud = 5
+
         print(area)
         if area >= fbRange[0]:
-            self.send_command(-5, speed)
+            self.send_command(fb=10)
+            time.sleep(0.1)
             self.send_land()
         elif area != 0:
             fb = 5
         if x == 0:
+            lr = 0
+            ud = 0
             speed = 0
             error = 0
-        self.send_command(fb, speed)
+        self.send_command(fb=fb, ud=ud, lr=lr)
         return error
 
-    def send_command(self, fb, speed):
-        self.tello.send_rc_control(0, fb, 0, speed)
+    def send_command(self, fb=0, ud=0, speed=0, lr=0):
+        self.tello.send_rc_control(lr, fb, ud, speed)
 
     def send_land(self):
         self.tello.land()
