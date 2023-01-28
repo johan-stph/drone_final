@@ -17,6 +17,7 @@ def provide_img(drone_active: bool):
 
 def run_game_loop(drone: bool, run_detection: bool = True, should_send_commands: bool = True):
     error = 0
+    counter = 0
     cmd.initialize()
     while True:
         img = provide_img(drone)
@@ -24,8 +25,10 @@ def run_game_loop(drone: bool, run_detection: bool = True, should_send_commands:
             continue
         if run_detection:
             img, info = find_img(img)
-            if should_send_commands:
+            if should_send_commands and counter == 30:
                 error = cmd.order_command(info, error)
+                counter = -1
+            counter += 1
 
         cv2.imshow("Output", img)
         cv2.waitKey(1)
@@ -34,6 +37,10 @@ def run_game_loop(drone: bool, run_detection: bool = True, should_send_commands:
 def setup_drone():
     tello.connect()
     tello.streamon()
+
+
+def shutdown():
+    tello.streamoff()
 
 
 def main(drone=False):
@@ -48,4 +55,5 @@ if __name__ == '__main__':
     try:
         main()
     except KeyboardInterrupt:
+        shutdown()
         cmd.send_land()
