@@ -18,9 +18,6 @@ model = YuNet(modelPath='tracking/face_detection_yunet_2022mar.onnx',
               backendId=cv2.dnn.DNN_BACKEND_OPENCV,
               targetId=cv2.dnn.DNN_TARGET_CPU)
 
-# Omit input to call default camera
-deviceId = 0
-cap = cv2.VideoCapture(deviceId)
 # w = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
 # h = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
 model.setInputSize([w, h])
@@ -99,7 +96,7 @@ def shutdown():
 
 
 def main(drone=False):
-    drone = False
+    drone = True
     if drone:
         setup_drone()
 
