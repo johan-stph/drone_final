@@ -16,7 +16,6 @@ def provide_img(drone_active: bool):
 
 
 def run_game_loop(drone: bool, run_detection: bool = True, should_send_commands: bool = True):
-    error = 0
     counter = 0
     cmd.initialize()
     while True:
@@ -25,8 +24,8 @@ def run_game_loop(drone: bool, run_detection: bool = True, should_send_commands:
             continue
         if run_detection:
             img, info = find_img(img)
-            if should_send_commands and counter == 30:
-                error = cmd.order_command(info, error)
+            if should_send_commands and counter == 60:
+                cmd.order_command(info)
                 counter = -1
             counter += 1
 
