@@ -31,14 +31,22 @@ def provide_img(drone_active: bool):
 def run_game_loop(drone: bool, run_detection: bool = True, should_send_commands: bool = True):
     counter = 0
     cmd.initialize()
+    found_once = False
     while True:
         img = provide_img(drone)
         if img is None:
             continue
         if run_detection:
             img, info = find_img_v2(img)
-            print(info)
-            if should_send_commands and counter == 60:
+
+            if info:
+                found_once = True
+
+            if not found_once and counter >= 30:
+                cmd.search()
+                counter = -1
+
+            if should_send_commands and counter >= 30 and info:
                 cmd.order_command(info)
                 counter = -1
             counter += 1
@@ -83,7 +91,7 @@ def find_img_v2(img):
 
     else:
 
-        return img, [[0, 0], 0]
+        return img, None
 
 
 def setup_drone():
