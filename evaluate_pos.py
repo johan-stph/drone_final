@@ -9,8 +9,8 @@ w, h = 360, 240
 FORWARD = 10
 UP = 5
 DOWN = 20
-RIGHT = 7
-LEFT = 7
+RIGHT = 10
+LEFT = 10
 
 
 class CommandOrder:

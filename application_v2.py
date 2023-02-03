@@ -63,34 +63,24 @@ def find_img_v2(img):
     myFaceListArea = []
 
     for det in faces if faces is not None else []:
-        bbox = det[0:4].astype(np.int32)
+        bbox = det[:4].astype(np.int32)
         x = bbox[0]
         y = bbox[1]
         w = bbox[2]
         h = bbox[3]
 
         cv2.rectangle(img, (x, y), (x + w, y + h), (0, 0, 255), 2)
-
         cx = x + w // 2
-
         cy = y + h // 2
-
         area = w * h
-
         cv2.circle(img, (cx, cy), 5, (0, 255, 0), cv2.FILLED)
-
         myFaceListC.append([cx, cy])
-
         myFaceListArea.append(area)
 
-    if len(myFaceListArea) != 0:
-
+    if myFaceListArea:
         i = myFaceListArea.index(max(myFaceListArea))
-
         return img, [myFaceListC[i], myFaceListArea[i]]
-
     else:
-
         return img, None
 
 
@@ -103,7 +93,7 @@ def shutdown():
     tello.streamoff()
 
 
-def main(drone=False):
+def main():
     drone = True
     if drone:
         setup_drone()
