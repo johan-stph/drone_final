@@ -217,15 +217,9 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Your Name - [@twitter_handle](https://twitter.com/twitter_handle) - johannes.uni.kit@gmail.com
-@johannes.uni.kit@gmail.com
-_client.com
+Johannes Stephan - johannes.uni.kit@gmail.com
 
-Project Link: [https://github.com/johan-stph
-/drone_final
-](https://github.com/johan-stph
-/drone_final
-)
+Project Link: [https://github.com/johan-stph/drone_final](https://github.com/johan-stph/drone_final)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
