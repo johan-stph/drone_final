@@ -244,36 +244,16 @@ Project Link: [https://github.com/johan-stph
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/johan-stph
-/drone_final
-.svg?style=for-the-badge
-[contributors-url]: https://github.com/johan-stph
-/drone_final
-/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/johan-stph
-/drone_final
-.svg?style=for-the-badge
-[forks-url]: https://github.com/johan-stph
-/drone_final
-/network/members
-[stars-shield]: https://img.shields.io/github/stars/johan-stph
-/drone_final
-.svg?style=for-the-badge
-[stars-url]: https://github.com/johan-stph
-/drone_final
-/stargazers
-[issues-shield]: https://img.shields.io/github/issues/johan-stph
-/drone_final
-.svg?style=for-the-badge
-[issues-url]: https://github.com/johan-stph
-/drone_final
-/issues
-[license-shield]: https://img.shields.io/github/license/johan-stph
-/drone_final
-.svg?style=for-the-badge
-[license-url]: https://github.com/johan-stph
-/drone_final
-/blob/master/LICENSE.txt
+[contributors-shield]: https://img.shields.io/github/contributors/johan-stph/drone_final.svg?style=for-the-badge
+[contributors-url]: https://github.com/johan-stph/drone_final/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/johan-stph/drone_final.svg?style=for-the-badge
+[forks-url]: https://github.com/johan-stph/drone_final/network/members
+[stars-shield]: https://img.shields.io/github/stars/johan-stph/drone_final.svg?style=for-the-badge
+[stars-url]: https://github.com/johan-stph/drone_final/stargazers
+[issues-shield]: https://img.shields.io/github/issues/johan-stph/drone_final.svg?style=for-the-badge
+[issues-url]: https://github.com/johan-stph/drone_final/issues
+[license-shield]: https://img.shields.io/github/license/johan-stph/drone_final.svg?style=for-the-badge
+[license-url]: https://github.com/johan-stph/drone_final/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/linkedin_username
 [product-screenshot]: images/screenshot.png
