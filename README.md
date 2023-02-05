@@ -39,24 +39,15 @@
 
   <p align="center">
     This Project has the goal to land a tello drone on a turtle bot
-
     <br />
-    <a href="https://github.com/johan-stph
-/drone_final
-"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/johan-stph/drone_final"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/johan-stph
-/drone_final
-">View Demo</a>
+    <a href="https://github.com/johan-stph/drone_final">View Demo</a>
     ·
-    <a href="https://github.com/johan-stph
-/drone_final
-/issues">Report Bug</a>
+    <a href="https://github.com/johan-stph/drone_final/issues">Report Bug</a>
     ·
-    <a href="https://github.com/johan-stph
-/drone_final
-/issues">Request Feature</a>
+    <a href="https://github.com/johan-stph/drone_final/issues">Request Feature</a>
   </p>
 </div>
 
