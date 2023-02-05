@@ -30,9 +30,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/johan-stph
-/drone_final
-">
+  <a href="https://github.com/johan-stph/drone_final">
     <img src="images/logo.png" alt="Logo" width="80" height="80">
   </a>
 
