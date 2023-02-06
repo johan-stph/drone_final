@@ -83,7 +83,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+[![Product Name Screen Shot][product-screenshot]](https://github.com/johan-stph/drone_final)
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
