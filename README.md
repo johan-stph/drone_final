@@ -85,7 +85,7 @@
 
 [![Product Name Screen Shot][product-screenshot]](https://github.com/johan-stph/drone_final)
 
-
+Training data and models for haar cascade: https://github.com/bennybweng/cascade
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
