@@ -9,13 +9,14 @@ w, h = 360, 240
 FORWARD = 10
 UP = 5
 DOWN = 20
-RIGHT = 10
-LEFT = 10
+RIGHT = 8
+LEFT = 14
 
 
 class CommandOrder:
     def __init__(self, tello: Tello):
         self.tello = tello
+        self.search_counter = 0
 
     def initialize(self):
         self.tello.takeoff()
@@ -38,19 +39,20 @@ class CommandOrder:
             lr = min(RIGHT, int(right_left_error // 10))
         elif right_left_error < 0:
             lr = -min(LEFT, int(-right_left_error // 10))
-
         if height > 0:
             ud = -DOWN
         elif height < 0:
             ud = UP
-
         print(area)
         if area >= fbRange[0]:
             self.send_command(fb=10)
             time.sleep(0.6)
             self.send_land()
         elif area != 0:
-            fb = 20 if area < 1000 else FORWARD
+            fb = 12 if area < 1000 else FORWARD
+
+        #maybe investigate that later
+        #seems its just working fine
         if x == 0:
             lr = 0
             ud = 0
@@ -66,4 +68,31 @@ class CommandOrder:
         raise KeyboardInterrupt("Drone has landed")
 
     def search(self):
+        if self.search_counter == 12:
+            self.search_counter = 0
+            self.send_land()
+            return
+
+        self.search_counter += 1
         self.tello.send_command_with_return("cw 30")
+
+    def search_v2(self):
+        self.send_command(fb=5)
+        if self.search_counter == 0:
+            self.send_command(fb=8)
+            return
+
+        if self.search_counter == 1:
+            self.tello.send_command_with_return("cw 90")
+            self.send_command(fb=5)
+            return
+
+        if 2 <= self.search_counter <= 7:
+            self.tello.send_command_with_return("cw 135")
+            self.send_command(fb=10)
+            return
+        print("COUND NOT FIND TARGET")
+        self.send_land()
+
+    def flip(self):
+        self.tello.flip_forward()

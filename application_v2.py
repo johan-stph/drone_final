@@ -1,3 +1,5 @@
+import time
+
 import djitellopy
 import cv2
 import numpy as np
@@ -28,7 +30,7 @@ def provide_img(drone_active: bool):
     return cv2.resize(img, (w, h))
 
 
-def run_game_loop(drone: bool, run_detection: bool = True, should_send_commands: bool = True):
+def run_game_loop(drone: bool, run_image_detection: bool = True, should_send_commands: bool = True):
     counter = 0
     cmd.initialize()
     found_once = False
@@ -36,11 +38,13 @@ def run_game_loop(drone: bool, run_detection: bool = True, should_send_commands:
         img = provide_img(drone)
         if img is None:
             continue
-        if run_detection:
+        if run_image_detection:
             img, info = find_img_v2(img)
 
-            if info:
+            if info and not found_once:
                 found_once = True
+                #cmd.flip()
+                time.sleep(1.5)
 
             if not found_once and counter >= 30:
                 cmd.search()
